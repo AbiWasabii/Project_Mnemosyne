@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+.env.local
+
+# Logs
+logs/
+
+# Backups
+backups/
+
+# Data
+data/
+
+# Databases
+*.db
+*.sqlite
+
+# Node
+node_modules/
+
+# VS Code
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Docker volumes
+docker/volumes/
+
+# Logs
+logs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# VSCode
+.vscode/
+
+# Memory data
+data/memory/*.bak
