@@ -51,8 +51,20 @@ Shared digital brain.
 
 Project Status:
 
-Day 1
-Version 0.0.0
+🏛 Mnemosyne v2.0 Stable
+
+✓ Long-term memory
+✓ Semantic search
+✓ Timeline memory
+✓ Episodic memory
+✓ Session memory
+✓ Reflection agent
+✓ Router
+✓ Multi-agent architecture
+✓ Gemma3 integration
+✓ Vector embeddings
+✓ Tests passing
+✓ Version tags
 
 # Mnemosyne
 
