@@ -15,16 +15,32 @@ def load_memories(owner: str):
 
     if not folder.exists():
         return memories
-
+ 
     for file in folder.glob("*.json"):
 
         with open(file, "r", encoding="utf-8") as f:
+
             data = json.load(f)
 
             if isinstance(data, list):
-                memories.extend(data)
+
+                for memory in data:
+
+                    exists = False
+
+                    for item in memories:
+
+                        if item["id"] == memory["id"]:
+
+                            exists = True
+                            break
+
+                    if not exists:
+
+                        memories.append(memory)
 
     return memories
+
 
 def append_memory(owner, filename, memory):
 
@@ -35,12 +51,25 @@ def append_memory(owner, filename, memory):
     if path.exists():
 
         with open(path, "r", encoding="utf-8") as f:
+
             memories = json.load(f)
 
     else:
+
         memories = []
 
-    memories.append(memory)
+    exists = False
+
+    for item in memories:
+
+        if item["id"] == memory["id"]:
+
+            exists = True
+            break
+
+    if not exists:
+
+        memories.append(memory)
 
     with open(path, "w", encoding="utf-8") as f:
 
@@ -48,5 +77,4 @@ def append_memory(owner, filename, memory):
             memories,
             f,
             indent=4
-            ensure_ascii=False
         )

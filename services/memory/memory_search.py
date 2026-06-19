@@ -1,22 +1,26 @@
 from services.memory.memory_store import load_memories
-from services.memory.memory_scoring import calculate_score
+from services.memory.memory_decay import decay_score
 
 
-def search_memory(owner, keyword):
+def search_memory(owner, keywords):
 
     memories = load_memories(owner)
 
     results = []
 
-    keyword = keyword.lower()
-
     for memory in memories:
 
-        if keyword in memory["content"].lower():
+        content = memory["content"].lower()
 
-            memory["score"] = calculate_score(memory)
+        for keyword in keywords:
 
-            results.append(memory)
+            if keyword in content:
+
+                memory["score"] = decay_score(memory)
+
+                results.append(memory)
+
+                break
 
     results.sort(
         key=lambda x: x["score"],
