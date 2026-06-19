@@ -79,3 +79,14 @@ Memory Systems
 Models
 - Gemma3:4b
 - nomic-embed-text
+
+Mnemosyne v2.0 Stable
+
+Features:
+- Long-term memory
+- Timeline memory
+- Episodic memory
+- Semantic search
+- Multi-agent architecture
+- Reflection
+- Session memory
