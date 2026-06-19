@@ -3,7 +3,8 @@ from services.memory.question_answer import answer_question
 from services.core.session import session
 
 
-def ask(question):
+
+def ask(question: str) -> str:
 
     owner = detect_owner(question)
 
@@ -17,9 +18,5 @@ def ask(question):
         owner=owner,
         question=question
     )
-
-    session["current_owner"] = owner
-    session["last_question"] = question
-    session["last_answer"] = answer
 
     return answer

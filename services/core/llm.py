@@ -1,23 +1,21 @@
 import ollama
-
-MODEL_NAME = "gemma3:4b" 
-# MODEL_NAME = "qwen3:8b" 
-# MODEL_NAME = "qwen3:4b" 
+from services.config import MODEL_NAME
 
 
-def ask_model(prompt):
+def ask_model(prompt: str) -> str:
 
     response = ollama.chat(
         model=MODEL_NAME,
         messages=[
             {
                 "role": "system",
-                "content": """
+                "content":
+                """
 Answer concisely.
 Use the provided memories.
 Do not ask follow-up questions unless necessary.
 Limit answers to 1-3 sentences.
-"""
+                """
             },
             {
                 "role": "user",

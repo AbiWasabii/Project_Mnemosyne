@@ -1,14 +1,12 @@
 import ollama
+from services.config import EMBED_MODEL
 
 
-MODEL_NAME = "nomic-embed-text"
+def embed(text: str) -> list:
 
-
-def embed(text):
-
-    response = ollama.embeddings(
-        model=MODEL_NAME,
-        prompt=text
+    response = ollama.embed(
+        model=EMBED_MODEL,
+        input=text
     )
 
-    return response["embedding"]
+    return response["embeddings"][0]

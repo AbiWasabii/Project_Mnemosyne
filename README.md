@@ -53,3 +53,29 @@ Project Status:
 
 Day 1
 Version 0.0.0
+
+# Mnemosyne
+
+## Architecture
+
+Coordinator
+Router
+
+Agents
+- Memory Agent
+- Timeline Agent
+- Episode Agent
+- Planner Agent
+- Reflection Agent
+
+Memory Systems
+- Long-term memory
+- Timeline memory
+- Episodic memory
+- Semantic search
+- Memory decay
+- Consolidation
+
+Models
+- Gemma3:4b
+- nomic-embed-text

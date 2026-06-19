@@ -1,22 +1,35 @@
+from services.config import DEBUG
 from services.memory.memory_search import search_memory
 from services.memory.context_builder import build_context
 from services.memory.keyword_extractor import extract_keyword
 from services.core.llm import ask_model
 
 
-def answer_question(owner, question):
+def answer_question(
+    owner: str,
+    question: str
+) -> str:
 
     keywords = extract_keyword(question)
 
     memories = search_memory(owner, keywords)
 
-    print("\nRelevant memories:")
+    if DEBUG:
 
-    if memories:
-        for memory in memories:
-            print("-", memory["content"])
-    else:
-        print("(none)")
+        print("\nRelevant memories:")
+
+        if memories:
+
+            for memory in memories:
+
+                print("-", memory["content"])
+
+        else:
+
+            print("(none)")
+
+    if not memories:
+
         return "I don't know."
 
     context = build_context(memories)

@@ -1,11 +1,8 @@
 import json
-from pathlib import Path
+from services.config import BASE_PATH
 
 
-BASE_PATH = Path("data/memory")
-
-
-def load_memories(owner: str):
+def load_memories(owner: str) -> list:
 
     owner = owner.lower()
 
@@ -42,7 +39,11 @@ def load_memories(owner: str):
     return memories
 
 
-def append_memory(owner, filename, memory):
+def append_memory(
+    owner: str,
+    filename: str,
+    memory: dict
+) -> None:
 
     owner = owner.lower()
 

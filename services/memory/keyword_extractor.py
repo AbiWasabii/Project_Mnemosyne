@@ -1,4 +1,4 @@
-def extract_keyword(question):
+def extract_keyword(question: str) -> list:
 
     question = question.lower()
 
