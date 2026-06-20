@@ -1,4 +1,4 @@
-from services.agents.self_reflection_agent import self_reflect
+from services.agents.reflection_agent import reflection_agent
 from services.agents.personality_builder import build_personality
 from services.agents.goal_agent import create_goals
 from services.agents.identity_engine import build_identity
@@ -8,18 +8,26 @@ from services.agents.value_engine import build_values
 
 def build_mind_state(owner):
 
-    return {
+    state = {
 
-        "reflection": self_reflect(owner),
+        "reflection":
+            reflection_agent(owner),
 
-        "personality": build_personality(owner),
+        "personality":
+            build_personality(owner),
 
-        "goals": create_goals(owner),
+        "goals":
+            create_goals(owner),
 
-        "identity": build_identity(owner),
+        "identity":
+            build_identity(owner),
 
-        "beliefs": build_beliefs(owner),
+        "beliefs":
+            build_beliefs(owner),
 
-        "values": build_values(owner)
+        "values":
+            build_values(owner)
 
     }
+
+    return state
